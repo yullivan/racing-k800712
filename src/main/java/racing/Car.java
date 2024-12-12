@@ -10,6 +10,7 @@ public class Car {
     private final String name;
     private int position;
     private int totalDistance;
+    private int moveCount;
 
     public void move(int number) {
         if (number >= ForwardThreshold) {
@@ -17,6 +18,7 @@ public class Car {
             int moveDistance = RandomNumberGenerator.generateBetween(1, MaxMove);
             position += moveDistance;
             totalDistance += moveDistance;
+            moveCount++;
         }
     }
 
@@ -27,6 +29,9 @@ public class Car {
         this.name = name;
         this.position = 0;
         this.totalDistance = 0;
+        this.moveCount = 0;
+
+
     }
 
     public String getName() {
@@ -40,11 +45,14 @@ public class Car {
     public int getTotalDistance() {
         return totalDistance;
     }
+    public int getMoveCount() {
+        return moveCount;
+    }
 
 
     @Override
     public String toString() {
-        return name + " " + CarIcon + MoveIcon.repeat(position);
+        return name + " " + CarIcon + MoveIcon.repeat(position)+ " (이동 횟수: " + moveCount + ")";
     }
 
 }
