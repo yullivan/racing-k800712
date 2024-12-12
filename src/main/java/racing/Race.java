@@ -56,7 +56,7 @@ public class Race {
             System.out.println("🏆우승자는 " + String.join(", ", winners) + "!");
         }
 
-        System.out.println("각 자동차의 총 이동 횟수:");
+        System.out.println("각 자동차의 총 이동 횟수");
         for (Car car : cars) {
             System.out.println(car.getName() + ": " + car.getMoveCount() + "회");
 
