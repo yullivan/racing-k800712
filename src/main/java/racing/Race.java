@@ -36,13 +36,14 @@ public class Race {
         }
 
         private void announceWinners() {
-            int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(0);
+            int maxDistance = cars.stream().mapToInt(Car::getTotalDistance).max().orElse(0);
             List<String> winners = cars.stream()
-                    .filter(car -> car.getPosition() == maxPosition)
+                    .filter(car -> car.getTotalDistance() == maxDistance)
                     .map(Car::getName)
                     .collect(Collectors.toList());
+
             for (Car car : cars) {
-                if (car.getPosition() == maxPosition) {
+                if (car.getTotalDistance() == maxDistance) {
                     System.out.println(car + "🏁");
                 } else {
                     System.out.println(car);
