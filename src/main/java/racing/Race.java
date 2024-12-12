@@ -41,8 +41,15 @@ public class Race {
                     .filter(car -> car.getPosition() == maxPosition)
                     .map(Car::getName)
                     .collect(Collectors.toList());
+            for (Car car : cars) {
+                if (car.getPosition() == maxPosition) {
+                    System.out.println(car + "🏁");
+                } else {
+                    System.out.println(car);
+                }
+            }
 
             System.out.println("🏆우승자는 " + String.join(", ", winners) + "!");
         }
     }
-}
+
