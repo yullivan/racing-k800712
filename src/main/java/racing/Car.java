@@ -3,8 +3,6 @@ package racing;
 public class Car {
     private static final int MAX_NAME_LENGTH = 10;
     private static final int FORWARD_THRESHOLD = 6;
-    private static final String CAR_ICON = "🚗";
-    private static final String MOVE_ICON = "‍🌈";
     private static final int FORWARD_DISTANCE = 1;
 
     private final String name;

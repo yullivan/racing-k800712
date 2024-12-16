@@ -47,7 +47,7 @@ public class Race {
 
     private void printCarPositions() {
         for (Car car : cars) {
-            System.out.println(car);
+            System.out.println(RaceOutputFormatter.formatCarPosition(car));
         }
     }
 
@@ -58,22 +58,22 @@ public class Race {
                 .map(Car::getName)
                 .collect(Collectors.toList());
 
+
         for (Car car : cars) {
             if (car.getTotalDistance() == maxDistance) {
-                System.out.println(car + "🏁");
+                System.out.println(RaceOutputFormatter.formatWinner(car));
             } else {
-                System.out.println(car);
+                System.out.println(RaceOutputFormatter.formatCarPosition(car));
             }
         }
-        if (winners.size() > 1) {
-            System.out.println("🏆공동 우승자는 " + String.join(", ", winners) + "!");
-        } else {
-            System.out.println("🏆우승자는 " + String.join(", ", winners) + "!");
-        }
+
+
+        System.out.println(RaceOutputFormatter.formatWinnerAnnouncement(winners));
+
 
         System.out.println("각 자동차의 총 이동 횟수");
         for (Car car : cars) {
-            System.out.println(car.getName() + ": " + car.getMoveCount() + "회");
+            System.out.println(RaceOutputFormatter.formatMoveCount(car));
 
         }
 
