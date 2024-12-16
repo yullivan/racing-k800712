@@ -1,11 +1,11 @@
 package racing;
 
 public class Car {
-    private static final int MaxNameLength = 10;
-    private static final int ForwardThreshold = 6;
-    private static final String CarIcon = "🚗";
-    private static final String MoveIcon = "‍🌈";
-    private static final int MaxMove = 3;
+    private static final int MAX_NAME_LENGTH = 10;
+    private static final int FORWARD_THRESHOLD = 6;
+    private static final String CAR_ICON = "🚗";
+    private static final String MOVE_ICON = "‍🌈";
+    private static final int MAX_MOVE = 3;
 
     private final String name;
     private int position;
@@ -13,9 +13,9 @@ public class Car {
     private int moveCount;
 
     public void move(int number) {
-        if (number >= ForwardThreshold) {
+        if (number >= FORWARD_THRESHOLD) {
 
-            int moveDistance = RandomNumberGenerator.generateBetween(1, MaxMove);
+            int moveDistance = RandomNumberGenerator.generateBetween(1, MAX_MOVE);
             position += moveDistance;
             totalDistance += moveDistance;
             moveCount++;
@@ -23,7 +23,7 @@ public class Car {
     }
 
     public Car(String name) {
-        if (name.length() > MaxNameLength) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 10자를 초과할 수 없습니다.");
         }
         this.name = name;
@@ -52,7 +52,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return name + " " + CarIcon + MoveIcon.repeat(position)+ " (이동 횟수: " + moveCount + ")";
+        return name + " " + CAR_ICON + MOVE_ICON.repeat(position)+ " (이동 횟수: " + moveCount + ")";
     }
 
 }
