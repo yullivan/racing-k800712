@@ -28,6 +28,7 @@ public class RaceOutputFormatter {
         } else {
             return TrophyIcon + "우승자는 " + String.join(", ", winners) + "!";
         }
+
     }
 }
 

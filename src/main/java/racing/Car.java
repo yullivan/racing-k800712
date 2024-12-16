@@ -42,14 +42,10 @@ public class Car {
     public int getTotalDistance() {
         return totalDistance;
     }
+
     public int getMoveCount() {
         return moveCount;
     }
 
-
-    @Override
-    public String toString() {
-        return name + " " + CAR_ICON + MOVE_ICON.repeat(position)+ " (이동 횟수: " + moveCount + ")";
-    }
-
 }
+
