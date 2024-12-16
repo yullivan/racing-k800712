@@ -5,19 +5,18 @@ public class Car {
     private static final int FORWARD_THRESHOLD = 6;
     private static final String CAR_ICON = "🚗";
     private static final String MOVE_ICON = "‍🌈";
-    private static final int MAX_MOVE = 3;
+    private static final int FORWARD_DISTANCE = 1;
 
     private final String name;
     private int position;
     private int totalDistance;
     private int moveCount;
 
+
     public void move(int number) {
         if (number >= FORWARD_THRESHOLD) {
-
-            int moveDistance = RandomNumberGenerator.generateBetween(1, MAX_MOVE);
-            position += moveDistance;
-            totalDistance += moveDistance;
+            position += FORWARD_DISTANCE;
+            totalDistance += FORWARD_DISTANCE;
             moveCount++;
         }
     }
