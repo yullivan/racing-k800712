@@ -9,10 +9,25 @@ public class Race {
     private final List<Car> cars;
     private final int rounds;
 
+    public List<Car> getCars() {
+        return cars;
+
+    }
+
+    public List<String> getWinners() {
+        int maxDistance = cars.stream().mapToInt(Car::getTotalDistance).max().orElse(0);
+        return cars.stream()
+                .filter(car -> car.getTotalDistance() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+
     public Race(List<String> carNames, int rounds) {
         this.cars = carNames.stream().map(Car::new).collect(Collectors.toList());
         this.rounds = rounds;
     }
+
 
     public void start() {
         for (int i = 1; i <= rounds; i++) {
@@ -61,6 +76,7 @@ public class Race {
             System.out.println(car.getName() + ": " + car.getMoveCount() + "회");
 
         }
+
     }
 }
 
